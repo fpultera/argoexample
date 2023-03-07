@@ -10,7 +10,7 @@ spec:
     path: infra-apps
     targetRevision: HEAD
     directory:
-      recurse: false
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
