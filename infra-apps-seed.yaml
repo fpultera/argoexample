@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-apps-seed
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/fpultera/argoexample.git'
+    path: infra-apps
+    targetRevision: HEAD
+    directory:
+      recurse: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
